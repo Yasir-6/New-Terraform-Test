@@ -1,6 +1,6 @@
 
 # Port for the Target Group
-target_group_port = 8080
+target_group_port = 4000
 
 # Health Check Path for the Target Group
 target_group_health_check_path = "/health"
