@@ -2,14 +2,14 @@ terraform {
   backend "s3" {
     bucket         = "drazex-terraform-statefiles"
     key            = "dev/vpc/terraform.tfstate"
-    region         = "us-east-2"
+    region         = "us-east-1"
     dynamodb_table = "terraform-state-lock"
     encrypt        = true
   }
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = "us-east-1"
 }
 
 module "vpc" {
@@ -30,9 +30,9 @@ module "vpc" {
   ]
   
   availability_zones = [
-    "us-east-2a",
-    "us-east-2b",
-    "us-east-2c"
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c"
   ]
 }
 

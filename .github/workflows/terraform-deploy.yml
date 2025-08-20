@@ -6,7 +6,7 @@ on:
       - infra-terraform
 
 env:
-  AWS_REGION: us-east-2
+  AWS_REGION: us-east-1
   ENVIRONMENT: dev
   TF_STATE_BUCKET: "drazex-terraform-statefiles"
   TF_STATE_LOCK_TABLE: "terraform-state-lock"

@@ -19,7 +19,7 @@ on:
         type: string
 
 env:
-  AWS_REGION: us-east-2
+  AWS_REGION: us-east-1
   TF_STATE_BUCKET: "drazex-terraform-statefiles"
   TF_STATE_LOCK_TABLE: "terraform-state-lock"
 

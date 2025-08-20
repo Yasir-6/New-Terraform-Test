@@ -118,7 +118,7 @@ The infrastructure is configured for the following environments:
 
 ## AWS Region
 
-All resources are deployed in the `us-east-2` region.
+All resources are deployed in the `us-east-1` region.
 
 ## State Management
 

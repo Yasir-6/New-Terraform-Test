@@ -3,14 +3,14 @@ terraform {
   backend "s3" {
     bucket         = "drazex-terraform-statefiles"
     key            = "dev/ecr/terraform.tfstate"
-    region         = "us-east-2"
+    region         = "us-east-1"
     dynamodb_table = "terraform-state-lock"
     encrypt        = true
   }
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = "us-east-1"
 }
 
 module "ecr" {
