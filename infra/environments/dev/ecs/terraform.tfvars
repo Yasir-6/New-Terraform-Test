@@ -1,9 +1,9 @@
 
 # Docker container image
-container_image = "211125510898.dkr.ecr.us-east-2.amazonaws.com/hutch_ecr_repo:latest"
+container_image = "962496665962.dkr.ecr.us-east-1.amazonaws.com/node-app:latest"
 
 # Port on which the container listens
-container_port = 8080
+container_port = 4000
 
 # List of environment variables (comma-delimited)
 # env_variable_names = ["ENV_VAR1", "ENV_VAR2"]
