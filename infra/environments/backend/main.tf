@@ -1,7 +1,6 @@
 
 provider "aws" {
   region = "us-east-1"
-  profile = "drazex"
 }
 
 # S3 bucket for storing Terraform states
