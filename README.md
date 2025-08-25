@@ -148,7 +148,7 @@ Infrastructure can be destroyed using GitHub Actions workflow:
 5. Type "DESTROY" to confirm
 6. Run the workflow
 
-
+deploy
 
 ## Security Notes
 
