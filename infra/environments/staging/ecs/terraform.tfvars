@@ -1,8 +1,8 @@
 # Docker container image
-container_image = "962496665962.dkr.ecr.us-east-1.amazonaws.com/node-app:latest"
+container_image = "962496665962.dkr.ecr.us-east-1.amazonaws.com/mvc-ecommerce"
 
 # Port on which the container listens
-container_port = 4000
+container_port = 80
 
 # List of environment variables (comma-delimited)
 # env_variable_names = ["ENV_VAR1", "ENV_VAR2"]
