@@ -3,11 +3,11 @@ name: Deploy AWS Infrastructure
 on:
   push:
     branches:
-      - main
+      - infra
 
 env:
   AWS_REGION: us-east-1
-  ENVIRONMENT: dev
+  ENVIRONMENT: staging
   TF_STATE_BUCKET: "drazex-staging-terraform-statefiles"
   TF_STATE_LOCK_TABLE: "terraform-state-lock"
 
@@ -24,6 +24,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Check if resources exist
@@ -56,6 +57,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup Terraform
@@ -80,10 +82,10 @@ jobs:
     strategy:
       matrix:
         terraform_directories:
-          - ./infra/environments/dev/vpc
-          - ./infra/environments/dev/alb
-          - ./infra/environments/dev/ecr
-          - ./infra/environments/dev/ecs
+          - ./infra/environments/staging/vpc
+          - ./infra/environments/staging/alb
+          - ./infra/environments/staging/ecr
+          - ./infra/environments/staging/ecs
 
     steps:
       - name: Checkout Repository
@@ -94,6 +96,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup Terraform
@@ -116,7 +119,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./infra/environments/dev/vpc
+        working-directory: ./infra/environments/staging/vpc
 
     steps:
       - name: Checkout Repository
@@ -127,6 +130,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup Terraform
@@ -153,7 +157,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./infra/environments/dev/alb
+        working-directory: ./infra/environments/staging/alb
 
     steps:
       - name: Checkout Repository
@@ -164,6 +168,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup Terraform
@@ -190,7 +195,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./infra/environments/dev/ecr
+        working-directory: ./infra/environments/staging/ecr
 
     steps:
       - name: Checkout Repository
@@ -201,6 +206,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup Terraform
@@ -227,7 +233,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./infra/environments/dev/ecs
+        working-directory: ./infra/environments/staging/ecs
 
     steps:
       - name: Checkout Repository
@@ -238,6 +244,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Setup Terraform

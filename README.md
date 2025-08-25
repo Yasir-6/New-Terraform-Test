@@ -108,12 +108,13 @@ The following AWS managed policies are required for deployment:
 The following secrets need to be configured in GitHub:
 - `AWS_ACCESS_KEY_ID`: AWS Access Key ID
 - `AWS_SECRET_ACCESS_KEY`: AWS Secret Access Key
+- `AWS_SESSION_TOKEN`: AWS Session Token
 
 ## Environment Configuration
 
 The infrastructure is configured for the following environments:
-- dev (default)
-- staging (configurable)
+- staging (default)
+- dev (configurable)
 - prod (configurable)
 
 ## AWS Region
@@ -135,7 +136,7 @@ Infrastructure can be deployed manually using GitHub Actions workflow:
 1. Go to Actions tab
 2. Select "Deploy AWS Infrastructure"
 3. Click "Run workflow"
-4. Select environment (dev/staging/prod)
+4. Select environment (staging/dev/prod)
 5. Run the workflow
 
 ### Destruction
