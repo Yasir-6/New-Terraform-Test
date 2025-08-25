@@ -19,7 +19,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  TF_STATE_BUCKET: "drazex-staging-terraform-statefiles"
+  TF_STATE_BUCKET: "drazex-staging-terraform-statefiles321"
   TF_STATE_LOCK_TABLE: "terraform-state-lock"
 
 jobs:
