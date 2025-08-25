@@ -5,7 +5,7 @@ provider "aws" {
 
 # S3 bucket for storing Terraform states
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "drazex-staging-terraform-statefiles"
+  bucket = "drazex-staging-terraform-statefiles213"
 
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
