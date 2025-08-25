@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "drazex-staging-terraform-statefiles"
+    bucket         = "drazex-staging-terraform-statefile213"
     key            = "staging/ecs/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-state-lock"
@@ -12,7 +12,7 @@ terraform {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "drazex-staging-terraform-statefiles"
+    bucket = "drazex-staging-terraform-statefiles213"
     key    = "staging/vpc/terraform.tfstate"
     region = "us-east-1"
   }
@@ -21,7 +21,7 @@ data "terraform_remote_state" "vpc" {
 data "terraform_remote_state" "alb" {
   backend = "s3"
   config = {
-    bucket = "drazex-staging-terraform-statefiles"
+    bucket = "drazex-staging-terraform-statefiles213"
     key    = "staging/alb/terraform.tfstate"
     region = "us-east-1"
   }
@@ -30,7 +30,7 @@ data "terraform_remote_state" "alb" {
 data "terraform_remote_state" "ecr" {
   backend = "s3"
   config = {
-    bucket = "drazex-staging-terraform-statefiles"
+    bucket = "drazex-staging-terraform-statefiles213"
     key    = "staging/ecr/terraform.tfstate"
     region = "us-east-1"
   }
