@@ -148,6 +148,8 @@ Infrastructure can be destroyed using GitHub Actions workflow:
 5. Type "DESTROY" to confirm
 6. Run the workflow
 
+Now destroy your workflow
+
 ## Security Notes
 
 - All sensitive information is stored in GitHub Secrets
