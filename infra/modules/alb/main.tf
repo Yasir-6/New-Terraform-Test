@@ -1,7 +1,7 @@
-
 # Target Group
 resource "aws_lb_target_group" "drazex_staging_target_group" {
-  name        = "drazex-staging-target-group-${var.environment}"
+  # must be <= 32 chars
+  name        = "dzx-stg-tg-${var.environment}"
   port        = var.target_group_port
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
@@ -11,9 +11,9 @@ resource "aws_lb_target_group" "drazex_staging_target_group" {
     path                = var.target_group_health_check_path
     healthy_threshold   = 2
     unhealthy_threshold = 10
-    timeout            = 5
-    interval           = 30
-    matcher            = var.target_group_health_check_codes
+    timeout             = 5
+    interval            = 30
+    matcher             = var.target_group_health_check_codes
   }
 
   tags = {
@@ -24,7 +24,7 @@ resource "aws_lb_target_group" "drazex_staging_target_group" {
 
 # Security Group for Load Balancer
 resource "aws_security_group" "drazex_staging_load_balancer_security_group" {
-  name        = "drazex-staging-lb-sg-${var.environment}"
+  name        = "drazex-stg-lb-sg-${var.environment}"
   description = "Security group for load balancer"
   vpc_id      = var.vpc_id
 
@@ -52,11 +52,12 @@ resource "aws_security_group" "drazex_staging_load_balancer_security_group" {
 
 # Application Load Balancer
 resource "aws_lb" "drazex_staging_application_lb" {
-  name               = "drazex-staging-alb-${var.environment}"
+  # must be <= 32 chars
+  name               = "dzx-stg-alb-${var.environment}"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.drazex_staging_load_balancer_security_group.id]
-  subnets           = var.public_subnet_ids
+  subnets            = var.public_subnet_ids
 
   enable_deletion_protection = false
 
