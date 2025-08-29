@@ -12,7 +12,7 @@ terraform {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "drazex-staging-terraform-statefiles213"
+    bucket = "drazex-staging-terraform-statefiles948"
     key    = "staging/vpc/terraform.tfstate"
     region = "us-east-1"
   }
